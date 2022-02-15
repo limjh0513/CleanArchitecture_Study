@@ -1,6 +1,5 @@
 package kr.hs.dgsw.storeproject.ui.activity
 
-import android.os.Bundle
 import androidx.activity.viewModels
 import kr.hs.dgsw.storeproject.R
 import kr.hs.dgsw.storeproject.databinding.ActivityLoginBinding
@@ -13,7 +12,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         get() = R.layout.activity_login
 
     override fun observeViewModel() {
-        with(mViewModel){
+        with(mViewModel) {
 
         }
     }

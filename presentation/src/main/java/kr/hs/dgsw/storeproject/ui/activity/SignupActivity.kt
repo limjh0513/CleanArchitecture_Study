@@ -1,7 +1,5 @@
 package kr.hs.dgsw.storeproject.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.activity.viewModels
 import kr.hs.dgsw.storeproject.R
 import kr.hs.dgsw.storeproject.databinding.ActivitySignupBinding
@@ -14,7 +12,7 @@ class SignupActivity : BaseActivity<ActivitySignupBinding, SignupViewModel>() {
         get() = R.layout.activity_signup
 
     override fun observeViewModel() {
-        with(mViewModel){
+        with(mViewModel) {
 
         }
     }

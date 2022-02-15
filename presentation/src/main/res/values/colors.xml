@@ -17,6 +17,6 @@
     <color name="form_stroke">#DFDFDF</color>
     <color name="form_hint">#939393</color>
 
-    <color name="login_btn">#FFEC44 </color>
+    <color name="login_btn">#FFEC44</color>
     <color name="signUp_btn">#A1EE3E</color>
 </resources>

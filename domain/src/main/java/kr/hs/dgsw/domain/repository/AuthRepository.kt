@@ -1,9 +1,9 @@
 package kr.hs.dgsw.domain.repository
 
 import io.reactivex.Single
-import kr.hs.dgsw.domain.model.AuthData
-import kr.hs.dgsw.domain.request.LoginRequest
-import kr.hs.dgsw.domain.request.RegisterRequest
+import kr.hs.dgsw.domain.model.entity.AuthData
+import kr.hs.dgsw.domain.model.request.LoginRequest
+import kr.hs.dgsw.domain.model.request.RegisterRequest
 
 interface AuthRepository {
     fun register(request: RegisterRequest): Single<AuthData>

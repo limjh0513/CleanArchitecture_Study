@@ -2,5 +2,5 @@ package kr.hs.dgsw.storeproject.viewModel
 
 import kr.hs.dgsw.storeproject.viewModel.base.BaseViewModel
 
-class ChangeViewModel: BaseViewModel() {
+class ChangeViewModel : BaseViewModel() {
 }

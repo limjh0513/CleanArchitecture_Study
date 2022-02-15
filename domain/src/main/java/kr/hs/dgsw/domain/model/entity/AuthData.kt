@@ -1,4 +1,4 @@
-package kr.hs.dgsw.domain.model
+package kr.hs.dgsw.domain.model.entity
 
 data class AuthData(
     val id: Int,

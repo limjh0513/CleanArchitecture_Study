@@ -16,7 +16,7 @@ class TokenInterceptor @Inject constructor(private val application: Application)
         return chain.proceed(request)
     }
 
-    private fun setToken(){
+    private fun setToken() {
         token = SharedPreferenceManager.getToken(application)!!
     }
 }
