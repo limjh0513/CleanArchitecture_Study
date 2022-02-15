@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">StoreProject</string>
+
+    <string name="login_logo">Clean\nArchitecture</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUP</string>
+    <string name="change">Continue</string>
+</resources>
