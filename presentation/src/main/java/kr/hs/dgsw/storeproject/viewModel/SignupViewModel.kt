@@ -1,5 +1,6 @@
 package kr.hs.dgsw.storeproject.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,13 +13,11 @@ import javax.inject.Inject
 @HiltViewModel
 class SignupViewModel @Inject constructor(private val useCase: RegisterUseCase) : BaseViewModel() {
 
-    val onSuccessRegister: LiveData<AuthData>
-        get() = _onSuccessRegister
     private val _onSuccessRegister = MutableLiveData<AuthData>()
+    val onSuccessRegister: LiveData<AuthData> get() = _onSuccessRegister
 
-    val onErrorRegister: LiveData<Throwable>
-        get() = _onErrorRegister
     private val _onErrorRegister = MutableLiveData<Throwable>()
+    val onErrorRegister: LiveData<Throwable> get() = _onErrorRegister
 
 
     fun register(name: String, email: String, password: String) {
@@ -30,6 +29,8 @@ class SignupViewModel @Inject constructor(private val useCase: RegisterUseCase) 
 
                 override fun onError(e: Throwable) {
                     _onErrorRegister.value = e
+                    e.printStackTrace()
+                    Log.e("error - signup", "Error $e")
                 }
             })
     }

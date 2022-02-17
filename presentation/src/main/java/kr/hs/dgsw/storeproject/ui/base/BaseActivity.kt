@@ -9,7 +9,7 @@ import kr.hs.dgsw.storeproject.BR
 import kr.hs.dgsw.storeproject.viewModel.base.BaseViewModel
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
-    private lateinit var mBinding: VB
+    protected lateinit var mBinding: VB
     protected abstract val mViewModel: VM
     protected abstract val layoutRes: Int
 
