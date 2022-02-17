@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="kr.hs.dgsw.storeproject.viewModel.LoginViewModel" />
+
+        <variable
+            name="activity"
+            type="kr.hs.dgsw.storeproject.ui.activity.LoginActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

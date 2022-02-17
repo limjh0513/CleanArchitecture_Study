@@ -22,6 +22,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
     private fun initDataBinding() {
         mBinding = DataBindingUtil.setContentView(this, layoutRes)
         mBinding.setVariable(BR.viewModel, mViewModel)
+        mBinding.setVariable(BR.activity, this)
         mBinding.lifecycleOwner = this
         mBinding.executePendingBindings()
     }

@@ -1,5 +1,7 @@
 package kr.hs.dgsw.storeproject.ui.activity
 
+import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import kr.hs.dgsw.storeproject.R

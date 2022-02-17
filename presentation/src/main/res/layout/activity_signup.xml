@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="kr.hs.dgsw.storeproject.viewModel.SignupViewModel" />
+
+        <variable
+            name="activity"
+            type="kr.hs.dgsw.storeproject.ui.activity.SignupActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
