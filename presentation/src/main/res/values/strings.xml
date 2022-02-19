@@ -5,4 +5,6 @@
     <string name="login">Login</string>
     <string name="signup">SignUP</string>
     <string name="change">Continue</string>
+
+    <string name="hello">Hello $s</string>
 </resources>
