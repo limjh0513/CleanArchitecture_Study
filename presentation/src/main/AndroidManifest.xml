@@ -14,6 +14,9 @@
         android:theme="@style/Theme.StoreProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.activity.DetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.ChangeActivity"
             android:exported="true" />
         <activity
