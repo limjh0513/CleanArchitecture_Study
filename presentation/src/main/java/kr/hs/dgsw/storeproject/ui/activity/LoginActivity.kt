@@ -23,6 +23,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
                 SharedPreferenceManager.setToken(this@LoginActivity, it.token)
                 SharedPreferenceManager.setUserName(this@LoginActivity, it.name)
+                SharedPreferenceManager.setUserId(this@LoginActivity, it.id)
 
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                 startActivity(intent)

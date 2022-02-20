@@ -9,4 +9,5 @@
     <dimen name="login_logo">36sp</dimen>
     <dimen name="form_text">18sp</dimen>
 
+    <dimen name="detail_text">44sp</dimen>
 </resources>
