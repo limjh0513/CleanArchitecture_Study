@@ -12,6 +12,10 @@
         <variable
             name="activity"
             type="kr.hs.dgsw.storeproject.ui.activity.MainActivity" />
+
+        <variable
+            name="name"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +30,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif"
-            android:text="Hello\n@{}"
+            android:onClick="@{() -> activity.onClickUserName()}"
+            android:text="@{name}"
             android:textColor="@color/black"
             android:textSize="@dimen/main_name"
             app:layout_constraintStart_toStartOf="parent"

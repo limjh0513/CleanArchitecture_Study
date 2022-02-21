@@ -33,7 +33,7 @@ class ChangeActivity : BaseActivity<ActivityChangeBinding, ChangeViewModel>() {
     private fun getUserName() {
         val name: String? = SharedPreferenceManager.getUserName(this)
         if(name != null){
-            mBinding.name = name
+            mBinding.name = "Hello\n ${SharedPreferenceManager.getUserName(this)}"
         }
     }
 }

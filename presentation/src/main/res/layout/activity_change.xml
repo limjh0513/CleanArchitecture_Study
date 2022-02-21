@@ -96,7 +96,7 @@
             android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif"
             android:gravity="end"
-            android:text="@{@string/hello(name)}"
+            android:text="@{name}"
             android:textColor="@color/black"
             android:textSize="@dimen/main_name"
             app:layout_constraintEnd_toEndOf="parent"

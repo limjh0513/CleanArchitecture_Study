@@ -1,9 +1,11 @@
 package kr.hs.dgsw.storeproject.ui.activity
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
+import kr.hs.dgsw.data.util.SharedPreferenceManager
 import kr.hs.dgsw.storeproject.R
 import kr.hs.dgsw.storeproject.databinding.ActivityMainBinding
 import kr.hs.dgsw.storeproject.ui.adapter.ProductListAdapter
@@ -19,8 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     private var adapter: ProductListAdapter? = null
 
     override fun observeViewModel() {
-        setAdapter()
-
+        setInit()
         with(mViewModel) {
             onSuccessGetAllProduct.observe(this@MainActivity, Observer {
                 adapter!!.submitList(it)
@@ -32,10 +33,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         }
     }
 
-    private fun setAdapter() {
+    private fun setInit() {
         adapter = ProductListAdapter()
         adapter!!.context = this
 
         mBinding.mainRecyclerView.adapter = adapter
+
+        val name: String? = SharedPreferenceManager.getUserName(this)
+        if (name != null) {
+            mBinding.name = "Hello\n ${SharedPreferenceManager.getUserName(this)}"
+        }
+    }
+
+    fun onClickUserName() {
+        val intent = Intent(this, ChangeActivity::class.java)
+        startActivity(intent)
     }
 }

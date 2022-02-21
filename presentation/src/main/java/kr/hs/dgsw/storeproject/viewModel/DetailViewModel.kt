@@ -19,7 +19,6 @@ class DetailViewModel @Inject constructor(
 
     private val _onSuccessGetDetail = MutableLiveData<ProductData>()
     val onSuccessGetDetail: LiveData<ProductData> get() = _onSuccessGetDetail
-
     private val _onErrorGetDetail = MutableLiveData<Throwable>()
     val onErrorGetDetail: LiveData<Throwable> get() = _onErrorGetDetail
 

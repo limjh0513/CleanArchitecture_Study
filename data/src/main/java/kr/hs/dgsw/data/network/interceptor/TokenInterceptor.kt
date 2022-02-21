@@ -7,16 +7,21 @@ import okhttp3.Response
 import javax.inject.Inject
 
 class TokenInterceptor @Inject constructor(private val application: Application) : Interceptor {
-    lateinit var token: String
+    private var token: String? = null
 
     override fun intercept(chain: Interceptor.Chain): Response {
         setToken()
 
-        val request = chain.request().newBuilder().header("Authorization", token).build()
-        return chain.proceed(request)
+        if (token != null) {
+            val request = chain.request().newBuilder().header("Authorization", token!!).build()
+            return chain.proceed(request)
+        } else {
+            val request = chain.request().newBuilder().build()
+            return chain.proceed(request)
+        }
     }
 
     private fun setToken() {
-        token = SharedPreferenceManager.getToken(application)!!
+        token = SharedPreferenceManager.getToken(application)
     }
 }
