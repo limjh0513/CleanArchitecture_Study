@@ -59,6 +59,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:clickable="true"
+            android:onClick="@{() -> activity.onClickWriteBtn()}"
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

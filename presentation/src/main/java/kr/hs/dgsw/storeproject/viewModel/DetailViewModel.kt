@@ -3,6 +3,7 @@ package kr.hs.dgsw.storeproject.viewModel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import kr.hs.dgsw.domain.model.entity.ProductData
@@ -12,6 +13,7 @@ import kr.hs.dgsw.storeproject.util.SingleLiveEvent
 import kr.hs.dgsw.storeproject.viewModel.base.BaseViewModel
 import javax.inject.Inject
 
+@HiltViewModel
 class DetailViewModel @Inject constructor(
     private val detailUseCase: GetDetailProductUseCase,
     private val deleteUseCase: DeleteProductUseCase,

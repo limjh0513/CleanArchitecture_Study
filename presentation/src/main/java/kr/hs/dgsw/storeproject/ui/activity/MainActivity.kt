@@ -20,6 +20,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     private var adapter: ProductListAdapter? = null
 
+    override fun onResume() {
+        super.onResume()
+        mViewModel.getAllProduct()
+    }
+
     override fun observeViewModel() {
         setInit()
         with(mViewModel) {
@@ -47,6 +52,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     fun onClickUserName() {
         val intent = Intent(this, ChangeActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun onClickWriteBtn(){
+        val intent = Intent(this, PostActivity::class.java)
         startActivity(intent)
     }
 }
