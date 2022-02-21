@@ -1,11 +1,14 @@
 package kr.hs.dgsw.storeproject.ui.activity
 
+import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import kr.hs.dgsw.data.util.SharedPreferenceManager
+import kr.hs.dgsw.domain.model.entity.ProductData
 import kr.hs.dgsw.storeproject.R
 import kr.hs.dgsw.storeproject.databinding.ActivityDetailBinding
 import kr.hs.dgsw.storeproject.ui.base.BaseActivity
@@ -17,8 +20,18 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
     override val layoutRes: Int
         get() = R.layout.activity_detail
 
-    private var userId: Int? = null
     private var productId: Int? = null
+    private var userId: Int? = null
+    private var product: ProductData? = null
+
+    override fun onResume() {
+        super.onResume()
+
+        if (product != null) {
+            mViewModel.getDetailProduct(product!!.id)
+            Log.e("getId", "${product!!.id}")
+        }
+    }
 
     override fun observeViewModel() {
         getDetailData()
@@ -26,7 +39,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
         with(mViewModel) {
             onSuccessGetDetail.observe(this@DetailActivity, Observer {
                 mBinding.product = it
-                productId = it.id
+                product = it
 
                 if (userId == it.user.id) {
                     mBinding.detailChangeBtn.visibility = View.VISIBLE
@@ -53,29 +66,38 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
     }
 
     private fun getDetailData() {
+        productId = intent.getIntExtra("id", -1)
         userId = SharedPreferenceManager.getUserId(this)
-        val id = intent.getIntExtra("id", -1)
 
-        if (userId != -1) {
-            if (id != -1) {
-                mViewModel.getDetailProduct(id)
+        if(userId != null){
+            if (productId != -1) {
+                mViewModel.getDetailProduct(productId!!)
+            } else {
+                Toast.makeText(this, "상품 정보 고유번호 오류", Toast.LENGTH_SHORT).show()
             }
-        } else {
-            Toast.makeText(this, "유저 정보가 저장되지 않았습니다. 다시 로그인해주세요", Toast.LENGTH_SHORT).show()
+        } else{
+            Toast.makeText(this, "회원 정보에 문제가 발생했습니다. 다시 로그인 해주세요!", Toast.LENGTH_SHORT).show()
         }
     }
 
     fun onClickDeleteBtn() {
-        if (productId != null) {
-            mViewModel.deleteProduct(productId!!)
+        if (product != null) {
+            if (product?.id != null) {
+                mViewModel.deleteProduct(product!!.id)
+                Log.e("getId", "${product!!.id}")
+            }
         }
     }
 
     fun onClickChangeBtn() {
-
+        if(product != null){
+            val intent = Intent(this, EditActivity::class.java)
+            intent.putExtra("productData", product)
+            startActivity(intent)
+        }
     }
 
-    fun onClickBackBtn(){
+    fun onClickBackBtn() {
         finish()
     }
 }
